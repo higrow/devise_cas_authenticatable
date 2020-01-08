@@ -8,7 +8,7 @@ module DeviseCasAuthenticatable
         include ::DeviseCasAuthenticatable::SingleSignOut::WithConn
 
         def store_session_id_for_index(session_index, session_id)
-          logger.debug("Storing #{session_id} for index #{session_index}")
+          logger.debug("Storing #{session_id.public_id} for index #{session_index}")
           with_conn do |conn|
             conn.set(
               cache_key(session_index),

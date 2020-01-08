@@ -3,7 +3,7 @@ module DeviseCasAuthenticatable
     module Strategies
       class RailsCache < Base
           def store_session_id_for_index(session_index, session_id)
-            logger.debug("Storing #{session_id} for index #{session_index}")
+            logger.debug("Storing #{session_id.public_id} for index #{session_index}")
             Rails.cache.write(cache_key(session_index), session_id)
           end
 
